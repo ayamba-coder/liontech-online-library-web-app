@@ -1,14 +1,18 @@
 pipeline{
 	agent any
+	tools{
+		maven "maven3.9.9"
+	}
 	stages{
 		stage("build"){
 			steps{
 				echo "building the app"
+				sh "mvn install"
 			}
 		}
-		stage("test"){
+		stage("Sonarqube analysis"){
 			steps{
-				echo "Testing the app"
+				sh "mvn verify sonar:sonar"
 			}
 		}
 		stage("deploy"){
