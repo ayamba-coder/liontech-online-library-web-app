@@ -12,7 +12,9 @@ pipeline{
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				sh "mvn verify sonar:sonar"
+				withSonarQubeEnv(credentialsId: 'sonarID2') {
+    				sh 'mysonar'
+				}
 			}
 		}
 		stage("deploy"){
