@@ -12,7 +12,7 @@ pipeline{
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				withSonarQubeEnv(credentialsId: 'sonarID2') {
+				withSonarQubeEnv(installationName: "sonarqube server") {
     				sh 'mysonar'
 				}
 			}
