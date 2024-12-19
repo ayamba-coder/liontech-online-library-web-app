@@ -2,7 +2,6 @@ pipeline{
 	agent any
 	tools{
 		maven "maven3.9.9",
-		hudson.plugins.sonar.SonarRunnerInstallation "scanner6.0.0"
 	}
 	stages{
 		stage("build"){
@@ -14,7 +13,7 @@ pipeline{
 		stage("Sonarqube analysis"){
 			steps{
 				withSonarQubeEnv(installationName: "sonarqube server") {
-    				sh 'mysonar'
+    				      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
 				}
 			}
 		}
