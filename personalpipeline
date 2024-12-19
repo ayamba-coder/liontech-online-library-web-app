@@ -14,7 +14,7 @@ pipeline{
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				which "node"
+				sh "which node"
 			}
 		}
 		stage("deploy"){
