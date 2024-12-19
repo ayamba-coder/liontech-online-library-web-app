@@ -3,15 +3,18 @@ pipeline{
 	tools{
 		maven "maven3.9.9"
 	}
+	environment{
+	NVM_HOME = '$HOME/.nvm/node/'
+	}
 	stages{
 		stage("build"){
 			steps{
-				echo "${PATH}"
+				echo "${PATH} ${HOME} ${USER}"
 			}
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				echo "scanner"
+				echo "scanner $NVM_HOME"
 			}
 		}
 		stage("deploy"){
