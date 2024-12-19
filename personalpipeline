@@ -14,7 +14,7 @@ pipeline{
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				echo "${PATH}"
+				which "node"
 			}
 		}
 		stage("deploy"){
