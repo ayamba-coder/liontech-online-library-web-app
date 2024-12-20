@@ -14,7 +14,10 @@ pipeline{
 		}
 		stage("Sonarqube analysis"){
 			steps{
-				sh "which node"
+				nodejs('node') {
+    				// some block
+    				sh "mvn clean sonar:sonar"
+				}
 			}
 		}
 		stage("deploy"){
