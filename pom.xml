@@ -48,6 +48,14 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
+		  <plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <path>/</path>
+    </configuration>
+  </plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -72,7 +80,7 @@
 			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
-	<distributionManagement>
+	<!-- <distributionManagement>
 	    <repository>
 	      <id>nexus</id>
 	      <name>Demo Release Nexus Repository</name>
@@ -85,7 +93,7 @@
 	      <url>http://172.232.36.38:8081/repository/bookstore-snapshot/</url>
 	    </snapshotRepository>
 	    
-	</distributionManagement>
+	</distributionManagement> -->
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
